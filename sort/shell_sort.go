@@ -20,14 +20,10 @@ func ShellSort(a []int) {
 		for i := h; i < n; i++ {
 			//间隔h插入排序
 			for j := i; j >= h && a[j] < a[j-h]; j -= h {
-				swap(a, j, j-h)
+				a[j], a[j-h] = a[j-h], a[j]
 			}
 		}
 		h /= 3
 		fmt.Println("h is : ", h)
 	}
-}
-
-func swap(slice []int, i int, j int) {
-	slice[i], slice[j] = slice[j], slice[i]
 }
